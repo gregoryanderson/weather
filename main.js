@@ -23,7 +23,8 @@ function getResults (query) {
 }
 
 function displayResults(weather){
-  console.log(weather)
+  document.querySelector('.search-box').innerHTML = '';
+
   let city = document.querySelector('.location .city')
   city.innerText = `${weather.name}, ${weather.sys.country}`
 
@@ -39,6 +40,11 @@ function displayResults(weather){
 
   let hilow = document.querySelector('.hi-low')
   hilow.innerText = `${Math.round(weather.main.temp_min)}°f / ${Math.round(weather.main.temp_max)}°f`
+
+  if (weather.main.temp > 50){
+    document.querySelector('body').classList.add('warm')
+    console.log('warm')
+  }
 } 
 
 function dateBuilder(d) {
