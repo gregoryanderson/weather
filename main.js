@@ -41,9 +41,15 @@ function displayResults(weather){
   let hilow = document.querySelector('.hi-low')
   hilow.innerText = `${Math.round(weather.main.temp_min)}°f / ${Math.round(weather.main.temp_max)}°f`
 
-  if (weather.main.temp > 50){
+  if (weather.main.temp > 70){
     document.querySelector('body').classList.add('warm')
-    console.log('warm')
+    document.querySelector('body').classList.remove('cold')
+  } else if (weather.main.temp < 32) {
+    document.querySelector('body').classList.add('cold')
+    document.querySelector('body').classList.remove('warm')
+  } else {
+    document.querySelector('body').classList.remove('warm')
+    document.querySelector('body').classList.remove('cold')
   }
 } 
 
